@@ -4,5 +4,5 @@ pages_build_output_dir = "public"
 
 [[kv_namespaces]]
 binding = "SECURITY_LOGS"
-id = "PLACEHOLDER_PROD_ID"
-preview_id = "PLACEHOLDER_PREVIEW_ID"
+id = "998003af96674ee091173a321a99141f"
+preview_id = "e46e3d2cac024efa8427600e09f54d2e"
