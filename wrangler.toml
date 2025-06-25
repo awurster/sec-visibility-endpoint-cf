@@ -1,0 +1,8 @@
+name = "security-testing-endpoint"
+compatibility_date = "2024-05-15"
+pages_build_output_dir = "public"
+
+[[kv_namespaces]]
+binding = "SECURITY_LOGS"
+id = "PLACEHOLDER_PROD_ID"
+preview_id = "PLACEHOLDER_PREVIEW_ID"

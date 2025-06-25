@@ -1,0 +1,13 @@
+{
+  "name": "security-testing-endpoint",
+  "version": "1.0.0",
+  "description": "Data collection endpoint",
+  "scripts": {
+    "dev": "wrangler pages dev --port 8788",
+    "deploy": "wrangler pages deploy public",
+    "tail": "wrangler pages deployment tail"
+  },
+  "devDependencies": {
+    "wrangler": "^4.21.2"
+  }
+}
