@@ -39,9 +39,9 @@ export async function onRequestPost(context) {
     const userAgent = request.headers.get('User-Agent') || 'unknown';
     const timestamp = new Date().toISOString();
 
-    // Validate required payload structure
-    if (!requestData.payload?.source || !requestData.payload?.summary) {
-      return new Response('Bad Request', { status: 400 });
+    // Basic validation - just ensure payload exists
+    if (!requestData.payload) {
+      return new Response('Bad Request - payload required', { status: 400 });
     }
 
     // Create log entry
@@ -63,8 +63,8 @@ export async function onRequestPost(context) {
       const key = `log_${timestamp.replace(/[:.]/g, '-')}_${logEntry.id.substring(0, 8)}`;
       await env.SECURITY_LOGS.put(key, JSON.stringify(logEntry, null, 2), {
         metadata: {
-          source: requestData.payload.source,
-          summary: requestData.payload.summary,
+          source: requestData.payload.source || 'unknown',
+          summary: requestData.payload.summary || 'no summary',
           timestamp: timestamp
         }
       });
@@ -73,7 +73,7 @@ export async function onRequestPost(context) {
     // Log for debugging (server-side only, visible in Cloudflare dashboard)
     console.log('Data submitted successfully:', {
       id: logEntry.id,
-      source: requestData.payload.source
+      source: requestData.payload.source || 'unknown'
     });
 
     return new Response('OK', {

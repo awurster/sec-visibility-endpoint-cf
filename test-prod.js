@@ -50,7 +50,7 @@ async function testProdEndpoint() {
     console.log('🚀 Testing production endpoint...');
     console.log('URL:', PROD_URL);
     console.log('Hostname:', hostname);
-    console.log('Token:', token.length > 8 ? token.substring(0, 8) + '...' : '[NOT SET]');
+    // console.log('Token:', token.length > 8 ? token.substring(6, -1) + '...' : '[NOT SET]');
     console.log('Using env file:', process.env.AUTH_TOKEN ? '✅' : '❌');
     console.log('');
 
